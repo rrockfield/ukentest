@@ -40,7 +40,9 @@ The [test](src/test/java/com/uken/rockfield/question1/ChallengeB_IT.java) execut
 
 ## Question 2
 
-TBD
+I'm still thinking about this problem. 
+My first approach is to keep the events indexed by user where the latest events are stored for easy access whenever the latest 100 events are requested. 
+A scheduled task should compress and send to another historical storage (Amazon S3 maybe) all of the events greater than the 100th per user like a Garbage Collector.
 
 ## Question 3
 
