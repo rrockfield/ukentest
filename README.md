@@ -38,4 +38,23 @@ The [buffer](src/main/java/com/uken/rockfield/question1/RedisBuffer.java) is sup
 The timer executes all of the insertions saved in the map in a single Redis pipeline using a parallel thread, meanwhile the main thread replaces the map instance with a brand new one.
 The [test](src/test/java/com/uken/rockfield/question1/ChallengeB_IT.java) executes a single thread for testing the functionality only, a proper load test is still required to measure the throughput.
 
+## Question 2
 
+TBD
+
+## Question 3
+
+There are no validations, so for the sake of my solution I'm assuming that:
+1. Time ranges are surrounded with parentheses, starting with "(" and ending with ")".
+2. Starting time is separated from ending time with a dash ("-").
+3. Time ranges are separated by commas (",").
+4. Time ranges are in ascending order and don't overlap.
+5. Time starts at 0:00 and ends at 24:00
+
+The test values are executed from [TimeRangeSubstractionTest](src/test/java/com/uken/rockfield/question3/TimeRangeSubstractionTest.java) as proposed by the challenge. However a new custom test was added: MultiSplitTest.
+
+The main class [TimeRangeSubstraction](src/main/java/com/uken/rockfield/question3/TimeRangeSubstraction.java) implements a static method as the entry point:
+
+String substraction(String minuend, String subtrahend)
+
+The solution transforms the time strings into [TimeRange](src/main/java/com/uken/rockfield/question3/TimeRange.java) objects. This object implements a binary tree whenever a time range is split by the substraction, otherwise it behaves as a single range. 
